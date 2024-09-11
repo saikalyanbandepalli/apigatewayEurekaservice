@@ -1,4 +1,4 @@
-package org.example;
+package com.revature.eurekaserver;
 
 
 import org.springframework.boot.SpringApplication;

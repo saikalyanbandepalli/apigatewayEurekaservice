@@ -11,11 +11,11 @@
 		<relativePath/>
 	</parent>
 
-	<groupId>com.example</groupId>
-	<artifactId>revhire</artifactId>
+	<groupId>com.revature</groupId>
+	<artifactId>apigateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>revhire</name>
-	<description>Revhire SpringBoot Project</description>
+	<name>apigateway</name>
+	<description>apigateway for revhire</description>
 
 	<properties>
 		<java.version>21</java.version>

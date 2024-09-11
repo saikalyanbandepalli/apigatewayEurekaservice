@@ -1,4 +1,4 @@
-package com.revature.revhire.Config;
+package com.revature.apigateway.Config;
 
 import com.netflix.discovery.shared.transport.jersey3.Jersey3TransportClientFactories;
 import org.springframework.context.annotation.Bean;
