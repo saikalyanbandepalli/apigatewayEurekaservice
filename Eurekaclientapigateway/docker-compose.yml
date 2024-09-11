@@ -1,0 +1,133 @@
+version: '3'
+services:
+  user-service:
+    image: user-service
+    container_name: user-service
+    build:
+      context: ./user-service
+    ports:
+      - "8081:8080"
+    networks:
+      - app-network
+
+  employee-service:
+    image: employee-service
+    container_name: employee-service
+    build:
+      context: ./employee-service
+    ports:
+      - "8082:8080"
+    networks:
+      - app-network
+
+  jobpost-service:
+    image: jobpost-service
+    container_name: jobpost-service
+    build:
+      context: ./jobpost-service
+    ports:
+      - "8083:8080"
+    networks:
+      - app-network
+
+  notification-service:
+    image: notification-service
+    container_name: notification-service
+    build:
+      context: ./notification-service
+    ports:
+      - "8084:8080"
+    networks:
+      - app-network
+
+  auth-service:
+    image: auth-service
+    container_name: auth-service
+    build:
+      context: ./auth-service
+    ports:
+      - "8085:8080"
+    networks:
+      - app-network
+
+  api-gateway:
+    image: api-gateway
+    container_name: api-gateway
+    build:
+      context: ./api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user-service
+      - employee-service
+      - jobpost-service
+      - notification-service
+      - auth-service
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+
+#    version: '3'
+#    services:
+#      user-service:
+#        image: your-dockerhub-username/user-service:latest
+#        container_name: user-service
+#        ports:
+#          - "8081:8080"
+#        networks:
+#          - app-network
+#
+#      employee-service:
+#        image: your-dockerhub-username/employee-service:latest
+#        container_name: employee-service
+#        ports:
+#          - "8082:8080"
+#        networks:
+#          - app-network
+#
+#      jobpost-service:
+#        image: your-dockerhub-username/jobpost-service:latest
+#        container_name: jobpost-service
+#        ports:
+#          - "8083:8080"
+#        networks:
+#          - app-network
+#
+#      notification-service:
+#        image: your-dockerhub-username/notification-service:latest
+#        container_name: notification-service
+#        ports:
+#          - "8084:8080"
+#        networks:
+#          - app-network
+#
+#      auth-service:
+#        image: your-dockerhub-username/auth-service:latest
+#        container_name: auth-service
+#        ports:
+#          - "8085:8080"
+#        networks:
+#          - app-network
+#
+#      api-gateway:
+#        image: your-dockerhub-username/api-gateway:latest
+#        container_name: api-gateway
+#        ports:
+#          - "8080:8080"
+#        depends_on:
+#          - user-service
+#          - employee-service
+#          - jobpost-service
+#          - notification-service
+#          - auth-service
+#        networks:
+#          - app-network
+#
+#    networks:
+#      app-network:
+#        driver: bridge
+#
